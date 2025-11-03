@@ -1,0 +1,162 @@
+/* 🌸 Nền và bố cục */
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff7eb3, #ffb6c1);
+  font-family: "Poppins", sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-shadow: 0 0 15px rgba(255,255,255,0.8);
+}
+
+p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+button {
+  background: #ff69b4;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.5);
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #ff1493;
+  transform: scale(1.1);
+}
+
+/* 🌷 Dòng ảnh xuất hiện ban đầu */
+.image-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s ease;
+}
+
+.image-row img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: scale(0);
+  transition: 0.8s ease;
+}
+
+/* 💖 Hình chữ T */
+.heart-shape {
+  position: relative;
+  width: 500px;
+  height: 420px;
+  margin: 50px auto;
+  display: none;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.heart-shape img {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.7);
+  opacity: 0;
+  transform: scale(0.3) translateY(50px);
+  animation: fadeInUp 1s forwards ease-in-out;
+}
+
+/* ✨ Bố trí tạo hình chữ T */
+.heart-shape img:nth-child(1) { top: 0; left: 185px; animation-delay: 0.2s; }   /* Đỉnh chữ T */
+.heart-shape img:nth-child(2) { top: 0; left: 55px; animation-delay: 0.4s; }   /* Cánh trái */
+.heart-shape img:nth-child(3) { top: 0; right: 55px; animation-delay: 0.6s; }  /* Cánh phải */
+.heart-shape img:nth-child(4) { top: 140px; left: 185px; animation-delay: 0.8s; }
+.heart-shape img:nth-child(5) { top: 280px; left: 185px; animation-delay: 1s; }
+.heart-shape img:nth-child(6) { bottom: 10px; left: 185px; animation-delay: 1.2s; }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(60px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* 💫 Hiệu ứng lấp lánh quanh chữ T */
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(white, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleAnim 2s infinite ease-in-out;
+}
+
+@keyframes sparkleAnim {
+  0%, 100% { transform: scale(0.5) rotate(0deg); opacity: 0.8; }
+  50% { transform: scale(1.5) rotate(180deg); opacity: 0.2; }
+}
+
+/* Canvas trái tim bay */
+canvas#heartCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.birthday-text {
+  font-size: 1.1em;
+  line-height: 1.7em;
+  width: 80%;
+  margin: 20px auto;
+  animation: fadeInText 3s ease-in-out forwards;
+  opacity: 0;
+  color: #fff9f9;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
