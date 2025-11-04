@@ -83,6 +83,34 @@ button:hover {
   50% { transform: scale(1.05); }
 }
 
+.heart-shape {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  margin: 40px auto;
+  display: none;
+  animation: popIn 1.5s ease forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.heart-shape {
+  position: relative;
+  width: 420px;
+  height: 500px;
+  margin: 40px auto;
+  display: none;
+  animation: popIn 1.5s ease forwards;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 .heart-shape img {
   position: absolute;
   width: 130px;
@@ -90,20 +118,27 @@ button:hover {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid white;
-  box-shadow: 0 0 20px rgba(255, 192, 203, 0.7);
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
   opacity: 0;
-  transform: scale(0.3) translateY(50px);
-  animation: fadeInUp 1s forwards ease-in-out;
+  transform: scale(0.6);
+  animation: fadeIn 1s forwards;
 }
 
-/* ✨ Bố trí tạo hình chữ T */
-.heart-shape img:nth-child(1) { top: 0; left: 185px; animation-delay: 0.2s; }   /* Đỉnh chữ T */
-.heart-shape img:nth-child(2) { top: 0; left: 55px; animation-delay: 0.4s; }   /* Cánh trái */
-.heart-shape img:nth-child(3) { top: 0; right: 55px; animation-delay: 0.6s; }  /* Cánh phải */
-.heart-shape img:nth-child(4) { top: 140px; left: 185px; animation-delay: 0.8s; }
-.heart-shape img:nth-child(5) { top: 280px; left: 185px; animation-delay: 1s; }
-.heart-shape img:nth-child(6) { bottom: 10px; left: 185px; animation-delay: 1.2s; }
+@keyframes fadeIn {
+  to { opacity: 1; transform: scale(1); }
+}
 
+/* --- Sắp xếp ảnh thành hình chữ T --- */
+
+/* Hàng ngang phía trên (3 ảnh) */
+.heart-shape img:nth-child(1) { top: 0; left: 0; animation-delay: 0.1s; }
+.heart-shape img:nth-child(2) { top: 0; left: 145px; animation-delay: 0.3s; }
+.heart-shape img:nth-child(3) { top: 0; right: 0; animation-delay: 0.5s; }
+
+/* Hàng dọc (3 ảnh tiếp theo) */
+.heart-shape img:nth-child(4) { top: 145px; left: 145px; animation-delay: 0.7s; }
+.heart-shape img:nth-child(5) { top: 290px; left: 145px; animation-delay: 0.9s; }
+.heart-shape img:nth-child(6) { top: 435px; left: 145px; animation-delay: 1.1s; }
 @keyframes fadeInUp {
   0% {
     opacity: 0;
